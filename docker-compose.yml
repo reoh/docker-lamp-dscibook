@@ -1,0 +1,46 @@
+version: '2'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${YOUR_MYSQL_ROOT_PASSWORD}
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+  
+  phpmyadmin:
+    container_name: "phpmyadmin"
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=${YOUR_PMA_PASSWORD}
+    ports:
+      - "8080:80"
+    volumes:
+      - "./phpmyadmin/session:/session"
+    links:
+      - mysql
+
+
+  php:
+    build: ./php
+    ports:
+      - '80:80'
+    volumes:
+      - ./html:/var/www/html
+    depends_on:
+      - mysql
+
+  datascience-notebook:
+     container_name: "datascience-notebook"
+     image: jupyter/datascience-notebook
+     ports:
+       - '8888:8888'
+     volumes:
+       - './datascience-notebook:/home/jovyan/work'
+     command: start-notebook.sh --NotebookApp.token=''
+
+
+     #volumes:
+     # db:
