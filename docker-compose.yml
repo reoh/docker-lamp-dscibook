@@ -3,24 +3,34 @@ services:
   mysql:
     build: ./mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${YOUR_MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: pass
     volumes:
       - "./mysql/data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
   
   phpmyadmin:
     container_name: "phpmyadmin"
     image: phpmyadmin/phpmyadmin
     environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=mysql
-      - PMA_USER=root
-      - PMA_PASSWORD=${YOUR_PMA_PASSWORD}
+      # - PMA_ARBITRARY=1
+      # - PMA_HOST=mysql
+      #- PMA_USER=docker
+      #- PMA_PASSWORD=root
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: pass
+      PMA_HOST: db
+
     ports:
       - "8080:80"
     volumes:
       - "./phpmyadmin/session:/session"
+      - "./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php"
     links:
       - mysql
+      
+  python:
+    image: python
 
 
   php:

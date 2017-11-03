@@ -1,0 +1,53 @@
+xxxxxx
+15704.8387097
+time: 0.359578 [sec] 
+------
+15704.8387097
+time: 0.339861 [sec] 
+------
+15704.8387097
+time: 0.340034 [sec] 
+------
+3729.703125
+time: 0.346632 [sec] 
+------
+3729.703125
+time: 0.344637 [sec] 
+------
+15704.8387097
+time: 0.340930 [sec] 
+------
+15704.8387097
+time: 0.338321 [sec] 
+------
+15704.8387097
+time: 0.340985 [sec] 
+------
+3729.703125
+time: 0.346807 [sec] 
+------
+3729.703125
+time: 0.346541 [sec] 
+------
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
